@@ -8,7 +8,7 @@ namespace yace {
         private:
             std::string name;
         public:
-            Editor(std::string name) : name(name) {
+            explicit Editor(std::string name) : name(name) {
             }
 
             std::string getName();
