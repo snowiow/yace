@@ -1,6 +1,6 @@
 #include <boost/python.hpp>
 
-#include <editor.hpp>
+#include "editor.hpp"
 
 namespace yace {
     BOOST_PYTHON_MODULE(yace_py) {
