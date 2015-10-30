@@ -2,6 +2,9 @@
 #define WINDOW_HPP
 
 namespace yace {
+    /**
+     * An editor consist of a number of windows, which can have tabs and buffers
+     */
     class Window {
         
     };

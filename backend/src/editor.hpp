@@ -24,7 +24,7 @@ namespace yace {
                 
         public:
             static Editor* getInstance() {
-                if (Editor::_instance == nullptr) {
+                if (!Editor::_instance) {
                     Editor::_instance = std::unique_ptr<Editor>(new Editor);
                 }
                 return Editor::_instance.get();
