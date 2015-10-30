@@ -1,7 +1,11 @@
 #include "editor.hpp"
 
 namespace yace {
-    std::string Editor::getName() {
-        return this->name;
+    Editor::Editor() {
+        this->_windows.push_back(Window());
+    }
+
+    const std::vector<Window>& Editor::getWindows() const {
+        return this->_windows;
     }
 }

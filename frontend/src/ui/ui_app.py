@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'app.ui'
+# Form implementation generated from reading ui file 'src/ui/app.ui'
 #
-# Created: Thu Oct 22 15:33:27 2015
+# Created: Thu Oct 22 16:14:46 2015
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,21 +12,26 @@ from PySide import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1027, 899)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.plainTextEdit = QtGui.QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.horizontalLayout.addWidget(self.plainTextEdit)
+        self.horizontalLayout_2.addLayout(self.horizontalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 27))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1027, 27))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
         self.menuEdit = QtGui.QMenu(self.menubar)
         self.menuEdit.setObjectName("menuEdit")
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtGui.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
         self.actionNew = QtGui.QAction(MainWindow)
         self.actionNew.setObjectName("actionNew")
         self.actionOpenFile = QtGui.QAction(MainWindow)

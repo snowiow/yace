@@ -1,9 +1,29 @@
 cmake_minimum_required(VERSION 3.2)
 project(yace)
 
-add_subdirectory(backend)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
+    -Wall \
+    -Wextra \
+    -Werror \
+    -Wnon-virtual-dtor \
+    -Wshadow \
+    -Winit-self \
+    -Wredundant-decls \
+    -Wcast-align \
+    -Wundef \
+    -Wfloat-equal \
+    -Winline \
+    -Wunreachable-code \
+    -Wmissing-declarations \
+    -Wmissing-include-dirs \
+    -Wmain \
+    -pedantic \
+    -Wfatal-errors \
+    -Wno-switch \
+    -std=c++1y \
+    -O3")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -std=c++1y -O3")
+add_subdirectory(backend)
 
 enable_testing()
 add_test(run_tests backend/test/test_suite)
