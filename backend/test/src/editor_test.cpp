@@ -15,12 +15,12 @@ BOOST_AUTO_TEST_CASE(singleton) {
 }
 
 BOOST_AUTO_TEST_CASE(one_window_on_creation) {
-    BOOST_CHECK_EQUAL(1, editor->getWindows().size());
+    BOOST_CHECK(editor->getWindow(0) != nullptr);
 }
 
 BOOST_AUTO_TEST_CASE(add_a_new_window) {
     editor->newWindow();
-    BOOST_CHECK_EQUAL(2, editor->getWindows().size());
+    BOOST_CHECK(editor->getWindow(1) != nullptr);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

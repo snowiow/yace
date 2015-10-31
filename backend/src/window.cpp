@@ -5,11 +5,11 @@ namespace yace {
         this->newBuffer();
     }
 
-    std::vector<std::unique_ptr<Buffer>>& Window::getBuffers() {
-        return this->_buffers; 
+    Buffer* Window::getBuffer(u8_t i) {
+        return this->_buffers[i].get(); 
     }
 
     void Window::newBuffer() {
-        this->_buffers.push_back(std::unique_ptr<Buffer>(new Buffer()));
+        this->_buffers.emplace_back(new Buffer());
     }
 }

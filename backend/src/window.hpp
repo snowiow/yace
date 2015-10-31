@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 
+#include "types.hpp"
 #include "buffer.hpp"
 
 namespace yace {
@@ -16,7 +17,14 @@ namespace yace {
 
         public:
             explicit Window();
-            std::vector<std::unique_ptr<Buffer>>& getBuffers();
+
+            /**
+             * Returns a pointer to the buffer with the specified index
+             * @param i the given index
+             * @return The buffer under the given index
+             */
+            Buffer* getBuffer(u8_t i);
+
             void newBuffer();
     };
 }

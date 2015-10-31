@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 
+#include "types.hpp"
 #include "window.hpp"
 
 namespace yace {
@@ -30,7 +31,13 @@ namespace yace {
                 return Editor::_instance.get();
             }
 
-            std::vector<std::unique_ptr<Window>>& getWindows() ;
+            /**
+             * Returns a pointer to the window with the specified index
+             * @param i the given index
+             * @return The window under the given index
+             */
+            Window* getWindow(u8_t i);
+
             void newWindow();
     };
 }
