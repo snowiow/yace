@@ -2,6 +2,7 @@
 #define WINDOW_HPP
 
 #include <vector>
+#include <memory>
 
 #include "buffer.hpp"
 
@@ -11,11 +12,11 @@ namespace yace {
      */
     class Window {
         private:
-            std::vector<Buffer> _buffers;
+            std::vector<std::unique_ptr<Buffer>> _buffers;
 
         public:
             explicit Window();
-            std::vector<Buffer>& getBuffers();
+            std::vector<std::unique_ptr<Buffer>>& getBuffers();
             void newBuffer();
     };
 }

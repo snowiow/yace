@@ -17,7 +17,7 @@ namespace yace {
         private:
             static std::unique_ptr<Editor> _instance;
             
-            std::vector<Window> _windows;
+            std::vector<std::unique_ptr<Window>> _windows;
 
         private:
             explicit Editor();
@@ -30,7 +30,7 @@ namespace yace {
                 return Editor::_instance.get();
             }
 
-            std::vector<Window>& getWindows() ;
+            std::vector<std::unique_ptr<Window>>& getWindows() ;
             void newWindow();
     };
 }

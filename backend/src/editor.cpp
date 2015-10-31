@@ -7,11 +7,11 @@ namespace yace {
         this->newWindow();
     }
 
-    std::vector<Window>& Editor::getWindows() {
+    std::vector<std::unique_ptr<Window>>& Editor::getWindows() {
         return this->_windows;
     }
 
     void Editor::newWindow() {
-        this->_windows.push_back(Window());
+        this->_windows.push_back(std::unique_ptr<Window>(new Window()));
     }
 }
