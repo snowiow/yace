@@ -30,7 +30,8 @@ namespace yace {
                 return Editor::_instance.get();
             }
 
-            const std::vector<Window>& getWindows() const;
+            std::vector<Window>& getWindows() ;
+            void newWindow();
     };
 }
 #endif //EDITOR_HPP

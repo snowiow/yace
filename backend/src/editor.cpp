@@ -4,10 +4,14 @@ namespace yace {
     std::unique_ptr<Editor> Editor::_instance;
 
     Editor::Editor() {
-        this->_windows.push_back(Window());
+        this->newWindow();
     }
 
-    const std::vector<Window>& Editor::getWindows() const {
+    std::vector<Window>& Editor::getWindows() {
         return this->_windows;
+    }
+
+    void Editor::newWindow() {
+        this->_windows.push_back(Window());
     }
 }

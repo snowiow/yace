@@ -29,7 +29,7 @@ include_directories(${PYTHON_INCLUDE_DIRS})
 find_package(Boost COMPONENTS python REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
-set(SOURCE_FILES src/editor.cpp)
+set(SOURCE_FILES src/editor.cpp src/window.cpp)
 
 add_library(yace SHARED ${SOURCE_FILES})
 add_library(yace_py SHARED src/editor_py.cpp)
@@ -39,4 +39,5 @@ set_target_properties(yace_py PROPERTIES PREFIX "")
 add_subdirectory(test)
 
 enable_testing()
-add_test(run_tests test/test_suite) 
+add_test(editor_tests test/editor_tests) 
+add_test(window_tests test/window_tests)
