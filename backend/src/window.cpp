@@ -6,7 +6,7 @@ namespace yace {
     }
 
     Buffer* Window::getBuffer(u8_t i) {
-        return this->_buffers[i].get(); 
+        return this->_buffers.at(i).get(); 
     }
 
     void Window::newBuffer() {
