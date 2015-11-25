@@ -6,7 +6,7 @@
 int main() {
     boost::asio::io_service ioService;
     yace::server::Server server(ioService, 13);
-    server.startReceive();
+    ioService.run();
 
     return 0;
 }

@@ -11,7 +11,7 @@ namespace yace {
             private:
                 boost::asio::ip::udp::socket _socket;
                 boost::asio::ip::udp::endpoint _endpoint;
-                std::array<char, 256> _recv_buffer;
+                std::array<char, 1024> _recv_buffer;
 
             public:
                 Server(boost::asio::io_service& ioService, u16_t port) : 
@@ -23,11 +23,12 @@ namespace yace {
                                 )
                            ) 
             {
-                //this->_startReceive();    
+                this->receive();
             }
 
 
-            void startReceive();
+            void receive();
+            void send(std::size_t);
         };
     }
 }
