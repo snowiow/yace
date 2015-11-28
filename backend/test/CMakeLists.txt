@@ -1,8 +1,17 @@
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(Qt5Test REQUIRED)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 include_directories(../src)
 
-add_executable(editor_tests src/editor_test.cpp)
-target_link_libraries(editor_tests yace ${Boost_UNIT_TEST_FRAMEWORK})
+set(SOURCE_FILES
+    src/main.cpp
+    src/editorTest.cpp
+    src/windowTest.cpp)
 
-add_executable(window_tests src/window_test.cpp)
-target_link_libraries(window_tests yace ${Boost_UNIT_TEST_FRAMEWORK})
+add_executable(yace_test ${SOURCE_FILES})
+target_link_libraries(yace_test yace Qt5::Test)
+set_target_properties(yace_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+enable_testing()
+add_test(yace_test ${CMAKE_SOURCE_DIR}/bin/yace_test) 
