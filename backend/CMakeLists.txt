@@ -23,18 +23,19 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
     -std=c++1y \
     -O3")
 
-find_package(PythonLibs 2.7 REQUIRED)
-include_directories(${PYTHON_INCLUDE_DIRS})
+include_directories(src/util)
+include_directories(src/yace/server)
 
-find_package(Boost COMPONENTS python REQUIRED)
+set(YACE_SOURCE_FILES src/yace/editor/editor.cpp src/yace/editor/window.cpp)
+add_library(yace SHARED ${YACE_SOURCE_FILES})
+
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost COMPONENTS system REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
+set(SERVER_SOURCE_FILES src/main.cpp src/yace/server/server.cpp)
 
-set(SOURCE_FILES src/editor.cpp src/window.cpp)
-
-add_library(yace SHARED ${SOURCE_FILES})
-add_library(yace_py SHARED src/editor_py.cpp)
-target_link_libraries(yace_py ${Boost_LIBRARIES} yace)
-set_target_properties(yace_py PROPERTIES PREFIX "")
+add_executable(yace_server ${SERVER_SOURCE_FILES})
+target_link_libraries(yace_server yace ${Boost_SYSTEM_FRAMEWORK} ${Boost_LIBRARIES})
 
 add_subdirectory(test)
 
