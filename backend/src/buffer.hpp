@@ -2,6 +2,8 @@
 #define BUFFER_HPP
 
 namespace yace {
-class Buffer {};
+    class Buffer {
+        
+    };
 }
-#endif  // BUFFER_HPP
+#endif //BUFFER_HPP
