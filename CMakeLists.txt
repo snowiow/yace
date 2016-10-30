@@ -23,7 +23,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
     -std=c++1y \
     -O3")
 
-add_subdirectory(backend)
-add_subdirectory(backend/test)
-enable_testing()
-add_test(yace_test ${CMAKE_SOURCE_DIR}/bin/yace_test) 
+set(SOURCE_FILES
+    src/term.cpp
+    src/yace.cpp
+    src/main.cpp)
+
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+
+add_executable(main ${SOURCE_FILES})
+target_link_libraries(main ${CURSES_LIBRARIES})
