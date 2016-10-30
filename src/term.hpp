@@ -5,11 +5,11 @@
 
 class Term: public IUi {
     public:
-        Term();
+        explicit Term();
         virtual ~Term();
 
         virtual int get_char();
 
-        virtual void print_char(int c);
+        virtual void print_char(int);
 };
 #endif //TERM_HPP

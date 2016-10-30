@@ -1,8 +1,7 @@
 #include "yace.hpp"
+#include "iui.hpp"
 
-Yace::Yace(IUi* ui) {
-    _ui = std::unique_ptr<IUi>(ui);
-}
+Yace::Yace(IUi* ui) : _ui(ui) { }
 
 void Yace::run() {
     int ch;

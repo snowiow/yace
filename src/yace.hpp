@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "iui.hpp"
+class IUi;
 
 class Yace {
     private:
